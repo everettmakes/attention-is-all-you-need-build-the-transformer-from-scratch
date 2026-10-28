@@ -25,8 +25,16 @@ def build_token_to_id_vocab(sentences, specials=('<pad>', '<bos>', '<eos>', '<un
 def build_id_to_token_vocab(token_to_id):
     return {v: k for k, v in token_to_id.items()}
 
-# Step 3 - encode_sentence_to_ids (not yet solved)
-# TODO: implement
+# Step 3 - encode_sentence_to_ids
+def encode_sentence_to_ids(sentence, token_to_id, unk_token='<unk>'):
+    ans = []
+    for s in sentence.split():
+        try:
+            i = token_to_id[s]
+        except:
+            i = token_to_id[unk_token]
+        ans.append(i)
+    return ans
 
 # Step 4 - decode_ids_to_tokens (not yet solved)
 # TODO: implement
