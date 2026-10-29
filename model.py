@@ -67,8 +67,14 @@ def scale_embeddings_by_sqrt_d_model(embeddings, d_model):
     """Scale a token embedding tensor by sqrt(d_model)."""
     return embeddings * math.sqrt(d_model)
 
-# Step 8 - compute_positional_div_term (not yet solved)
-# TODO: implement
+# Step 8 - compute_positional_div_term
+import torch
+
+def compute_positional_div_term(d_model):
+    ans = []
+    for i in range(d_model//2):
+        ans.append(10000.0 ** float(-2.0 * i / d_model))
+    return torch.FloatTensor(ans)
 
 # Step 9 - build_position_index_column (not yet solved)
 # TODO: implement
