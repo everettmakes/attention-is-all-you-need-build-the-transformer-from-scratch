@@ -170,8 +170,12 @@ def softmax_attention_weights(masked_scores):
     # TODO: softmax over the last axis, zeroing rows that are entirely -inf
     return masked_scores.softmax(-1).nan_to_num()
 
-# Step 21 - apply_attention_weights_to_values (not yet solved)
-# TODO: implement
+# Step 21 - apply_attention_weights_to_values
+import torch
+
+def apply_attention_weights_to_values(attention_weights, value):
+    """Multiply attention weights by the value matrix to produce context vectors."""
+    return attention_weights @ value
 
 # Step 22 - scaled_dot_product_attention (not yet solved)
 # TODO: implement
