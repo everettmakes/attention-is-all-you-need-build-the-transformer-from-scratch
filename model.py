@@ -135,8 +135,11 @@ def build_causal_mask(seq_len):
     causal_mask = rows >= cols
     return causal_mask[None, None, :, :]
 
-# Step 16 - combine_padding_and_causal_masks (not yet solved)
-# TODO: implement
+# Step 16 - combine_padding_and_causal_masks
+import torch
+
+def combine_padding_and_causal_masks(padding_mask, causal_mask):
+    return padding_mask & causal_mask
 
 # Step 17 - compute_raw_attention_scores (not yet solved)
 # TODO: implement
