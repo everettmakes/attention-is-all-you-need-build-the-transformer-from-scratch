@@ -196,8 +196,11 @@ import torch
 def split_last_dim_into_heads(tensor, num_heads):
     return tensor.view((tensor.shape[0],tensor.shape[1], num_heads, tensor.shape[2] // num_heads))
 
-# Step 24 - transpose_heads_before_sequence (not yet solved)
-# TODO: implement
+# Step 24 - transpose_heads_before_sequence
+import torch
+
+def transpose_heads_before_sequence(split_tensor):
+    return split_tensor.permute((0, 2, 1, 3))
 
 # Step 25 - merge_heads_back_to_model_dim (not yet solved)
 # TODO: implement
